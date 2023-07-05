@@ -5,21 +5,15 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.fajar.myapplication.R
 import com.fajar.myapplication.data.local.Yugi
 import com.fajar.myapplication.databinding.SearchActivityBinding
 import com.fajar.myapplication.ui.adapter.SearchAdapter
 import com.fajar.myapplication.ui.detail.DetailActivity
 import com.fajar.myapplication.ui.interfaces.ItemClickCallback
 import com.fajar.myapplication.ui.viewmodel.ViewModelFactory
-import android.content.Context
 import android.content.Intent
-import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
-import androidx.recyclerview.widget.DividerItemDecoration
-import com.fajar.myapplication.ui.detail.DetailViewModel
 
 
 class SearchActivity:AppCompatActivity() {
@@ -52,11 +46,11 @@ class SearchActivity:AppCompatActivity() {
     }
 
     private fun searchCardData() {
-        binding?.searchView?.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+        binding.searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
                 adapter.cardList.clear()
                 query.let {
-                    binding.searchView?.clearFocus() // hide keyboard after searching
+                    binding.searchView.clearFocus() // hide keyboard after searching
                     finalState()
                     viewModel.setListFruit(it.toString())
                 }
@@ -88,14 +82,14 @@ class SearchActivity:AppCompatActivity() {
             }
             adapter.setOnItemClickCallback(object : ItemClickCallback {
                 override fun onItemClicked(fruitItem: Yugi) {
-                    showClickedFruitItem(fruitItem)
+                    showClickedCardItem(fruitItem)
                 }
             })
         }
     }
 
     private fun emptyState() {
-        binding?.apply {
+        binding.apply {
             rvCard.visibility = View.GONE
             layoutEmptyData.root.visibility = View.VISIBLE
         }
@@ -108,14 +102,14 @@ class SearchActivity:AppCompatActivity() {
         }
     }
 
-    private fun showClickedFruitItem(yugi: Yugi) {
+    private fun showClickedCardItem(yugi: Yugi) {
         Toast.makeText(this, "You Choose " + yugi.name, Toast.LENGTH_SHORT).show()
 
         val moveWithObjectIntent = Intent(this@SearchActivity, DetailActivity::class.java)
         moveWithObjectIntent.putExtra(DetailActivity.EXTRA_DATA_DETAIL, yugi)
 
         startActivity(moveWithObjectIntent)
-        viewModel = SearchViewModel()
+        viewModel = SearchViewModel(application)
     }
 
     private fun showLoading(isLoading: Boolean) {

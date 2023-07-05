@@ -8,10 +8,10 @@
 
     <ImageView
         android:id="@+id/imgView"
-        android:layout_width="266dp"
-        android:layout_height="362dp"
+        android:layout_width="315dp"
+        android:layout_height="361dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -87,61 +87,35 @@
         app:layout_constraintStart_toEndOf="@+id/tvRace"
         app:layout_constraintTop_toBottomOf="@+id/imgView" />
 
-    <com.google.android.material.textfield.TextInputLayout
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="369dp"
-        android:layout_height="141dp"
-        android:layout_marginTop="9dp"
-        android:layout_marginEnd="16dp"
-        android:hint="Description"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvType">
-
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/detail_ed_description"
-        android:layout_width="331dp"
-        android:layout_height="118dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="25dp"
-        android:layout_marginEnd="16dp"
-        android:focusable="false"
-        android:gravity="top"
-        android:lines="5"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvType" />
-
     <TextView
         android:id="@+id/tvAttack"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="24dp"
         android:layout_marginEnd="12dp"
         android:text="Attack"
         app:layout_constraintEnd_toStartOf="@+id/textView8"
-        app:layout_constraintTop_toBottomOf="@+id/detail_ed_description" />
+        app:layout_constraintTop_toBottomOf="@+id/tvDetail" />
 
     <TextView
         android:id="@+id/tvDefense"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="24dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="20dp"
         android:text="Defense"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/detail_ed_description" />
+        app:layout_constraintTop_toBottomOf="@+id/tvDetail" />
 
     <TextView
         android:id="@+id/textView8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="24dp"
         android:layout_marginEnd="12dp"
         android:text="/"
         app:layout_constraintEnd_toStartOf="@+id/tvDefense"
-        app:layout_constraintTop_toBottomOf="@+id/detail_ed_description" />
+        app:layout_constraintTop_toBottomOf="@+id/tvDetail" />
 
     <ProgressBar
         android:id="@+id/progress_bar"
@@ -171,6 +145,18 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvDetail"
+        android:layout_width="335dp"
+        android:layout_height="188dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="26dp"
+        android:layout_marginEnd="16dp"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvType" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

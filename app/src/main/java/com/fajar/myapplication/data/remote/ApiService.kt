@@ -8,7 +8,7 @@ import retrofit2.http.Query
 
 interface ApiService {
 
-    @GET("cardinfo.php/name")
+    @GET("cardinfo.php/fname")
     fun getCard(
         @Query("name") query: String
     ): Call<YugiResponse>

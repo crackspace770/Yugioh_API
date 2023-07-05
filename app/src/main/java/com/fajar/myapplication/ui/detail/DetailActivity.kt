@@ -10,9 +10,6 @@ import com.fajar.myapplication.databinding.ActivityDetailBinding
 import com.fajar.myapplication.ui.viewmodel.ViewModelFactory
 import com.fajar.myapplication.util.Constant.Companion.IMAGE_BASE_URL
 import com.fajar.myapplication.util.Utils.loadImageUrl
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
 
 class DetailActivity : AppCompatActivity() {
 
@@ -29,11 +26,11 @@ class DetailActivity : AppCompatActivity() {
             showLoading(it)
         }
 
-        card = intent.extras?.getParcelable<Yugi>(EXTRA_DATA_FRUIT) as Yugi
+        card = intent.extras?.getParcelable<Yugi>(EXTRA_DATA_DETAIL) as Yugi
 
         card.name.let {
-            val nama = Bundle()
-            nama.putString(EXTRA_DATA_DETAIL, card.name)
+            val name = Bundle()
+            name.putString(EXTRA_DATA_DETAIL, card.name)
             detailViewModel.setDetailFruit(it.toString())
             setActionBarTitle(card.name.toString())
         }
@@ -59,7 +56,7 @@ class DetailActivity : AppCompatActivity() {
                         tvName.text = detailFruit.name
                         tvType.text = detailFruit.type
                         tvRace.text = detailFruit.race
-                        detailEdDescription.text = detailFruit.desc
+                        tvDetail.text = detailFruit.desc
                         tvAttack.text = detailFruit.atk.toString()
                         tvDefense.text = detailFruit.def.toString()
 
@@ -93,10 +90,7 @@ class DetailActivity : AppCompatActivity() {
     }
 
     companion object {
-        const val EXTRA_DATA_FRUIT = "extra_data_fruit"
         const val EXTRA_DATA_DETAIL = "extra_data_detail"
-
-
     }
 
 }
